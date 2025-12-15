@@ -8,20 +8,33 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [particlePosition, setParticlePosition] = useState({ x: 0, y: 0 })
   const { scrollYProgress } = useScroll()
+  const [windowWidth, setWindowWidth] = useState(0)
+
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth)
+
     const unsubscribe = scrollYProgress.on("change", () => {
       const progress = scrollYProgress.get()
       const amplitude = Math.min(window.innerWidth * 0.3, 300)
       const frequency = 4
-      const x = Math.sin(progress * Math.PI * frequency) * amplitude + window.innerWidth / 2
-      setParticlePosition({ x, y: window.scrollY + window.innerHeight / 2 })
+
+      const x =
+        Math.sin(progress * Math.PI * frequency) * amplitude +
+        window.innerWidth / 2
+
+      setParticlePosition({
+        x,
+        y: window.scrollY + window.innerHeight / 2,
+      })
     })
 
     return () => unsubscribe()
   }, [scrollYProgress])
 
-  const isParticleOnRight = particlePosition.x > window.innerWidth / 2
+
+const isParticleOnRight =
+  windowWidth > 0 && particlePosition.x > windowWidth / 2
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center px-6 py-32">

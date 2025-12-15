@@ -48,7 +48,6 @@ export function Timeline() {
     return () => unsubscribe()
   }, [scrollYProgress])
 
-  const isParticleOnRight = particlePosition.x > window.innerWidth / 2
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center px-6 py-32">

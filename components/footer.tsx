@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { motion, useInView, useScroll } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { Github, Linkedin, Mail, Twitter } from "lucide-react"
@@ -9,26 +8,46 @@ import { Github, Linkedin, Mail, Twitter } from "lucide-react"
 export function Footer() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+
   const [particlePosition, setParticlePosition] = useState({ x: 0, y: 0 })
+  const [windowWidth, setWindowWidth] = useState(0)
+
   const { scrollYProgress } = useScroll()
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth)
+
     const unsubscribe = scrollYProgress.on("change", () => {
       const progress = scrollYProgress.get()
       const amplitude = Math.min(window.innerWidth * 0.3, 300)
       const frequency = 4
-      const x = Math.sin(progress * Math.PI * frequency) * amplitude + window.innerWidth / 2
-      setParticlePosition({ x, y: window.scrollY + window.innerHeight / 2 })
+
+      const x =
+        Math.sin(progress * Math.PI * frequency) * amplitude +
+        window.innerWidth / 2
+
+      setParticlePosition({
+        x,
+        y: window.scrollY + window.innerHeight / 2,
+      })
     })
 
     return () => unsubscribe()
   }, [scrollYProgress])
 
-  const isParticleOnRight = particlePosition.x > window.innerWidth / 2
+  const isParticleOnRight =
+    windowWidth > 0 && particlePosition.x > windowWidth / 2
 
   return (
-    <footer ref={ref} className="relative min-h-screen flex items-center justify-center px-6 py-32 bg-[#050A18]">
-      <div className={`max-w-6xl mx-auto w-full flex ${isParticleOnRight ? "justify-start" : "justify-end"}`}>
+    <footer
+      ref={ref}
+      className="relative min-h-screen flex items-center justify-center px-6 py-32 bg-[#050A18]"
+    >
+      <div
+        className={`max-w-6xl mx-auto w-full flex ${
+          isParticleOnRight ? "justify-start" : "justify-end"
+        }`}
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -45,8 +64,8 @@ export function Footer() {
           </h2>
 
           <p className="text-lg text-[#EAEAEA]/80 mb-12 leading-relaxed">
-            Ready to transform your ideas into reality? Our team is here to help you create cutting-edge solutions that
-            drive real business impact.
+            Ready to transform your ideas into reality? Our team is here to help
+            you create cutting-edge solutions that drive real business impact.
           </p>
 
           <div className="flex gap-8 mb-16">
@@ -66,7 +85,8 @@ export function Footer() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(circle at center, rgba(255,159,28,0.15) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle at center, rgba(255,159,28,0.15) 0%, transparent 70%)",
         }}
       />
     </footer>
