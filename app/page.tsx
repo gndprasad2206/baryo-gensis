@@ -6,8 +6,8 @@ import { Projects } from "@/components/projects"
 import { Timeline } from "@/components/timeline"
 import { Footer } from "@/components/footer"
 import { ScrollParticle } from "@/components/scroll-particle"
-import Galaxy from "@/components/reactbits/Galaxy"
 import PillNav from "@/components/reactbits/PillNav"
+import Particles from "@/components/reactbits/Particles"
 
 export default function BaryogenesisPortfolio() {
   return (
@@ -31,39 +31,41 @@ export default function BaryogenesisPortfolio() {
       </div>
 
       {/* Scroll-driven energy particle */}
-      <ScrollParticle />
+      {/* <ScrollParticle /> */}
 
       {/* Content sections */}
       <section className="relative h-screen overflow-hidden">
         {/* Galaxy layer */}
         <div className="absolute inset-0 z-0">
-          <Galaxy
-            mouseInteraction={true}
-            mouseRepulsion={false}
-            density={1}
-            glowIntensity={1}
-            saturation={0.6}
-            hueShift={240}
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
           />
         </div>
         <div className="flex justify-center">
           <PillNav
-          logo={"/image/logo_re_bg.png"}
-          logoAlt="Company Logo"
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'About', href: '/about' },
-            { label: 'Services', href: '/services' },
-            { label: 'Contact', href: '/contact' }
-          ]}
-          activeHref="/"
-          className="custom-nav"
-          ease="power2.easeOut"
-          baseColor="#0B132B"
-          pillColor="#ffffffff"
-          hoveredPillTextColor="#ffffff"
-          pillTextColor="#000000"
-        />
+            logo={"/image/logo_re_bg.png"}
+            logoAlt="Company Logo"
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'About', href: '/about' },
+              { label: 'Services', href: '/services' },
+              { label: 'Contact', href: '/contact' }
+            ]}
+            activeHref="/"
+            className="custom-nav"
+            ease="power2.easeOut"
+            baseColor="#0B132B"
+            pillColor="#ffffffff"
+            hoveredPillTextColor="#ffffff"
+            pillTextColor="#000000"
+          />
         </div>
         <Hero />
       </section>

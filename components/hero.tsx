@@ -2,31 +2,34 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import GradientText from "./reactbits/GradientText"
+import ShinyText from "./reactbits/ShinyText"
 
 export function Hero() {
   return (
     <section className=" min-h-screen flex items-center justify-center px-6">
       <div className="max-w-4xl mx-auto text-center z-10 backdrop-blur-[2px]">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-7xl md:text-8xl lg:text-9xl font-bold mb-6 bg-gradient-to-r from-[#00E5FF] via-[#00E5FF] to-[#39FF14] bg-clip-text text-transparent"
-          style={{
-            textShadow: "0 0 40px rgba(0,229,255,0.5), 0 0 80px rgba(0,229,255,0.3)",
-          }}
+        <GradientText
+          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+          animationSpeed={3}
+          showBorder={false}
+          className="text-[120px] font-bold"
         >
           Baryogenesis
-        </motion.h1>
+        </GradientText>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-2xl md:text-3xl mb-4 text-[#EAEAEA]/90 font-light"
-        >
-          Transforming Ideas Into Digital Reality
-        </motion.p>
+        <ShinyText
+          text="Transforming Ideas Into Digital Reality"
+          speed={2}
+          delay={0}
+          color="#b5b5b5"
+          shineColor="#ffffff"
+          spread={120}
+          direction="left"
+          yoyo={false}
+          pauseOnHover={false} 
+          className="text-2xl md:text-3xl mt-4 mb-6"
+        />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

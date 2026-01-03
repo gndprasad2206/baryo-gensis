@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist, Orbitron } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: "Where ideas evolve into matter. AI Developer, Backend Engineer, System Thinker.",
   generator: "v0.app",
   keywords: ["portfolio", "developer", "AI", "backend", "engineering"],
-  themeColor: "#0B132B",
   icons: {
     icon: [
       {
@@ -31,6 +30,10 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
 }
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
 
 export default function RootLayout({
   children,
