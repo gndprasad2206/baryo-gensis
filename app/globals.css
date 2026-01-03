@@ -135,3 +135,7 @@ html {
   backface-visibility: hidden;
   perspective: 1000px;
 }
+
+.audiowide {
+  font-family: var(--font-audiowide), cursive;
+}

@@ -5,11 +5,18 @@ import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
 import { Timeline } from "@/components/timeline"
 import { Footer } from "@/components/footer"
-import { ScrollParticle } from "@/components/scroll-particle"
-import PillNav from "@/components/reactbits/PillNav"
 import Particles from "@/components/reactbits/Particles"
+import Dock from "@/components/reactbits/Dock"
+import { Archive, Home, Settings, User } from "lucide-react"
 
 export default function BaryogenesisPortfolio() {
+  const menuItems = [
+    { icon: <Home size={18} />, label: 'Home', onClick: () => alert('Home!') },
+    { icon: <Archive size={18} />, label: 'Archive', onClick: () => alert('Archive!') },
+    { icon: <User size={18} />, label: 'Profile', onClick: () => alert('Profile!') },
+    { icon: <Settings size={18} />, label: 'Settings', onClick: () => alert('Settings!') },
+  ];
+
   return (
     <main className="relative min-h-screen bg-[#0B132B] text-[#EAEAEA] overflow-x-hidden">
       {/* Starfield background */}
@@ -48,25 +55,20 @@ export default function BaryogenesisPortfolio() {
             disableRotation={false}
           />
         </div>
-        <div className="flex justify-center">
-          <PillNav
-            logo={"/image/logo_re_bg.png"}
-            logoAlt="Company Logo"
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'About', href: '/about' },
-              { label: 'Services', href: '/services' },
-              { label: 'Contact', href: '/contact' }
-            ]}
-            activeHref="/"
-            className="custom-nav"
-            ease="power2.easeOut"
-            baseColor="#0B132B"
-            pillColor="#ffffffff"
-            hoveredPillTextColor="#ffffff"
-            pillTextColor="#000000"
-          />
+        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50">
+          <div
+            className="flex items-center justify-center"
+            style={{ height: 90 }}   // 👈 lock height (important)
+          >
+            <Dock
+              items={menuItems}
+              panelHeight={68}
+              baseItemSize={50}
+              magnification={70}
+            />
+          </div>
         </div>
+
         <Hero />
       </section>
       <About />

@@ -1,12 +1,11 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Geist, Orbitron } from "next/font/google"
+import { Geist, Audiowide } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
-const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-heading" })
-
+const audiowide = Audiowide({ subsets: ["latin"], weight: "400", variable: "--font-audiowide", })
 export const metadata: Metadata = {
   title: "Baryogenesis - Portfolio",
   description: "Where ideas evolve into matter. AI Developer, Backend Engineer, System Thinker.",
@@ -42,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${geist.variable} font-sans antialiased`}>
+      <body className={`${geist.variable} ${audiowide.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

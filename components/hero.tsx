@@ -13,7 +13,7 @@ export function Hero() {
           colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
           animationSpeed={3}
           showBorder={false}
-          className="text-[120px] font-bold"
+          className="text-[120px] font-bold audiowide"
         >
           Baryogenesis
         </GradientText>
@@ -28,14 +28,14 @@ export function Hero() {
           direction="left"
           yoyo={false}
           pauseOnHover={false} 
-          className="text-2xl md:text-3xl mt-4 mb-6"
+          className="text-2xl md:text-3xl mt-4 mb-6 audiowide"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl mb-12 text-[#EAEAEA]/70"
+          className="text-lg md:text-xl mb-12 text-[#EAEAEA]/70 audiowide"
         >
           AI Solutions • Web Development • System Architecture
         </motion.p>
@@ -48,7 +48,7 @@ export function Hero() {
         >
           <Button
             size="lg"
-            className="bg-[#00E5FF] hover:bg-[#00E5FF]/90 text-[#0B132B] font-semibold text-lg px-8 transition-all duration-300"
+            className="bg-[#00E5FF] hover:bg-[#00E5FF]/90 text-[#0B132B] font-semibold text-lg px-8 transition-all duration-300 audiowide"
             style={{
               boxShadow: "0 0 20px rgba(0,229,255,0.5)",
             }}
@@ -58,7 +58,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="outline"
-            className="border-2 border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF]/10 font-semibold text-lg px-8 bg-transparent"
+            className="border-2 border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF]/10 font-semibold text-lg px-8 bg-transparent audiowide"
           >
             Get in Touch
           </Button>
